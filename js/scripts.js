@@ -23,22 +23,35 @@ Player.prototype.hold = function() {
   currentPlayer = switchPlayers(currentPlayer);
 }
 
-function switchPlayers(currentPlayer) {  
-  if (currentPlayer === 0) {
-    currentPlayer = 1;
+function switchPlayers(currentPlayer) {
+  if (currentPlayer === "Jim") {
+    currentPlayer = "Bob";
+    playerOne.totalScore = this.totalScore;
   }
   else {
-    currentPlayer = 0;
+    currentPlayer = "Jim";
+    playerTwo.totalScore = this.totalScore;
   }
 }
 
-let currentPlayer = 0;
+let currentPlayer = "Jim";
+// let activePlayer = new Player(); //maybe add later
 let playerOne = new Player();
 let playerTwo = new Player();
 
-if (currentPlayer === 0) {
-  playerOne.rollDice();
-}
-else {
-  playerTwo.rollDice();
-}
+$(document).ready(function() {
+  $("#p1Score").html(playerOne.totalScore);
+  $("#p2Score").html(playerTwo.totalScore);  
+  $(".currentPlayer").html(currentPlayer);
+  
+  if (currentPlayer === "Jim") {
+    $("#submitRoll").click(playerOne.rollDice());
+    $("#hold").click(playerOne.hold());
+    $("#turnScore").html(playerOne.score);
+  }
+  if (currentPlayer === "Bob") {
+    $("#submitRoll").click(playerTwo.rollDice());
+    $("#hold").click(playerTwo.hold());
+    $("#turnScore").html(playerTwo.score);
+  }
+});
