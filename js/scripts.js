@@ -13,25 +13,45 @@ Player.prototype.rollDice = function() {
   else {
     this.score += this.roll;
   }
-  console.log(this.roll)
-  console.log(this.score)
+  console.log("rollDice - roll=" + this.roll, ", score=" + this.score);
 };
 
 Player.prototype.hold = function() {
   this.totalScore += this.score;
   this.score = 0;
   currentPlayer = switchPlayers(currentPlayer);
+  console.log("hold     - roll=" + this.roll, ", score=" + this.score);
 }
 
 function switchPlayers(currentPlayer) {
   if (currentPlayer === "Jim") {
     currentPlayer = "Bob";
-    playerOne.totalScore = this.totalScore;
   }
   else {
     currentPlayer = "Jim";
-    playerTwo.totalScore = this.totalScore;
   }
+  return currentPlayer;
+}
+
+function attachEventListeners() {
+  $("button#submitRoll").click(function() {
+    if (currentPlayer === "Jim") {
+      console.log("p1");
+      playerOne.rollDice();
+    } else {
+      console.log("p2");
+      playerTwo.rollDice();
+    }
+  });
+  $("button#hold").click(function() {
+    if (currentPlayer === "Jim") {
+      console.log("p1");
+      playerOne.hold();
+    } else {
+      console.log("p2");
+      playerTwo.hold();
+    }
+  });
 }
 
 let currentPlayer = "Jim";
@@ -40,18 +60,17 @@ let playerOne = new Player();
 let playerTwo = new Player();
 
 $(document).ready(function() {
-  $("#p1Score").html(playerOne.totalScore);
-  $("#p2Score").html(playerTwo.totalScore);  
+  attachEventListeners();
   $(".currentPlayer").html(currentPlayer);
-  
+  $("#p1Score").html(playerOne.totalScore);
+  $("#p2Score").html(playerTwo.totalScore);
+
   if (currentPlayer === "Jim") {
-    $("#submitRoll").click(playerOne.rollDice());
-    $("#hold").click(playerOne.hold());
     $("#turnScore").html(playerOne.score);
   }
+
   if (currentPlayer === "Bob") {
-    $("#submitRoll").click(playerTwo.rollDice());
-    $("#hold").click(playerTwo.hold());
     $("#turnScore").html(playerTwo.score);
   }
+
 });
