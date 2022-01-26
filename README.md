@@ -1,7 +1,7 @@
-Describe: rollDice()
+Describe: rollDice();
 Test: It should return a value 1-6
-Code: rollDice()
-Expected Output: 1-6
+Code: rollDice();
+Expected Output: 1-6;
 
 Test: Rolling a 1 sets the score to zero
 Code: this.roll = 1
@@ -24,3 +24,8 @@ playerOne.rollDice();
 playerOne;
 Expected Output: Player {*score of each roll added up*}
 
+Describe: hold();
+
+Test: It should hold the score of a player when they decide to end their turn;
+Code: playerOne.hold();
+Expected Output: totalScore: score
