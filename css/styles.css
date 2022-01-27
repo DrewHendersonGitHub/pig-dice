@@ -27,15 +27,19 @@ h1 {
   text-align: center;
 }
 
-#dice2, #dice3, #dice4, #dice5, #dice6 {
+#dice2, #dice3, #dice4, #dice5, #dice6, #one, #gameover {
   display: none;
+}
+
+#one {
+    border: 6px solid rgb(165, 42, 42);
 }
 
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-color: brown;
+  background-color: rgb(165, 42, 42);
   padding: 3em;
   border: solid black .5em;
   margin-top: 3em;
@@ -43,20 +47,20 @@ img {
 }
 
 :root {
-  Base font size
-  font-size: 10px;   
+  /* Base font size */
+  font-size: 20px;   
   
-  Set neon color
+  /* Set neon color */
   --neon-text-color: #f40;
   --neon-border-color: #08f;
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 200;
   font-style: italic;
   color: #fff;
-  padding: 4rem 6rem 5.5rem;
+  padding: 2rem 3rem 3rem;
   border: 0.4rem solid #fff;
   border-radius: 2rem;
   text-transform: uppercase;

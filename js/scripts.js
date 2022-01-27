@@ -42,14 +42,15 @@ function attachEventListeners() {
     $("#dice4").hide();
     $("#dice5").hide();
     $("#dice6").hide();
+    $("#one").hide();
 
     if (currentPlayer === "Jim") {
       console.log("p1");
       playerOne.rollDice();
-
       
       if (playerOne.roll === 1) {
         $("#dice1").show();
+        $("#one").show();
       }
       else if (playerOne.roll === 2) {
         $("#dice2").show();
@@ -67,14 +68,13 @@ function attachEventListeners() {
         $("#dice6").show();
       }
 
-
     } else {
       console.log("p2");
       playerTwo.rollDice();
-
       
       if (playerTwo.roll === 1) {
         $("#dice1").show();
+        $("#one").show();
       }
       else if (playerTwo.roll === 2) {
         $("#dice2").show();
@@ -91,9 +91,14 @@ function attachEventListeners() {
       else{
         $("#dice6").show();
       }
-
       
     }
+
+    if (playerOne.totalScore + playerOne.score >= 100 || playerTwo.totalScore + playerTwo.score >= 100) {
+      $("#game").hide();
+      $("#gameover").show();      
+    }
+    
   });
   
   $("button#hold").click(function() {
@@ -118,7 +123,26 @@ function attachEventListeners() {
     if (currentPlayer === "Bob") {
       $("#turnScore").html(playerTwo.score);
     }
+    
   });
+
+
+  $("button#replay").click(function() {
+    $("#game").show();
+    $("#gameover").hide();
+    playerOne.score = 0;
+    playerOne.totalScore = 0;
+    playerOne.roll = 0;
+    playerTwo.score = 0;
+    playerTwo.totalScore = 0;
+    playerTwo.roll = 0;
+    currentPlayer = switchPlayers(currentPlayer);
+    $(".currentPlayer").html(currentPlayer);
+    $("#p1Score").html(playerOne.totalScore);
+    $("#p2Score").html(playerTwo.totalScore);
+    $("#turnScore").html("0");
+  });
+
 }
 
 let currentPlayer = "Jim";
