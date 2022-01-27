@@ -10,15 +10,31 @@
 <body>
 <div class="container">
   <h1>Pig Dice Game</h1>
-  <h2>Player One Score</h2>
-  <p><span id="p1Score"></span></p>
-  <h2>Player Two Score</h2>
-  <p><span id="p2Score"></span></p>
+  <div class="row">
+    <div class="col-6">
+      <h2>Player One Score</h2>
+      <p><span id="p1Score"></span></p>
+    </div>
+    <div class="col-6">
+      <h2>Player Two Score</h2>
+      <p><span id="p2Score"></span></p>
+    </div>
+  </div>
 
   <h3>Roll the dice, <span class="currentPlayer"></span>!</h3>
-  <button type="button" id="submitRoll">Test your Luck!</button>
-  <button type="button" id="hold">Hold (Add to Total Score)</button>
-  <p><span class="currentPlayer"></span>'s score this turn: <span id="turnScore"></span></p>
+  <div class="centered">
+    <button type="button" class="btn btn-lg btn-danger" id="submitRoll">Test your Luck!</button>
+    <button type="button" class="btn btn-lg btn-warning" id="hold">Hold</button>
+  </div>
+  <div class="centered">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png" alt="1" id="dice1">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Alea_2.png" alt="1" id="dice2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Alea_3.png" alt="1" id="dice3">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Alea_4.png" alt="1" id="dice4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Alea_5.png" alt="1" id="dice5">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Alea_6.png" alt="1" id="dice6">
+  </div> 
+  <h4><span class="currentPlayer"></span>'s score this turn: <span id="turnScore"></span></h4>
 </div>
 </body>
 </html>

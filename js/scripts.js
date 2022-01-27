@@ -36,12 +36,63 @@ function switchPlayers(currentPlayer) {
 
 function attachEventListeners() {
   $("button#submitRoll").click(function() {
+    $("#dice1").hide();
+    $("#dice2").hide();
+    $("#dice3").hide();
+    $("#dice4").hide();
+    $("#dice5").hide();
+    $("#dice6").hide();
+
     if (currentPlayer === "Jim") {
       console.log("p1");
       playerOne.rollDice();
+
+      
+      if (playerOne.roll === 1) {
+        $("#dice1").show();
+      }
+      else if (playerOne.roll === 2) {
+        $("#dice2").show();
+      }
+      else if (playerOne.roll === 3) {
+        $("#dice3").show();
+      }
+      else if (playerOne.roll === 4) {
+        $("#dice4").show();
+      }
+      else if (playerOne.roll === 5) {
+        $("#dice5").show();
+      }
+      else{
+        $("#dice6").show();
+      }
+
+
     } else {
       console.log("p2");
       playerTwo.rollDice();
+
+      
+      if (playerTwo.roll === 1) {
+        $("#dice1").show();
+      }
+      else if (playerTwo.roll === 2) {
+        $("#dice2").show();
+      }
+      else if (playerTwo.roll === 3) {
+        $("#dice3").show();
+      }
+      else if (playerTwo.roll === 4) {
+        $("#dice4").show();
+      }
+      else if (playerTwo.roll === 5) {
+        $("#dice5").show();
+      }
+      else{
+        $("#dice6").show();
+      }
+
+      
     }
   });
   
